@@ -1,0 +1,46 @@
+<ng-container *ngIf="input?.invalid && input?.touched">
+  <ng-container *ngIf="input.hasError('required'); else elseTemplate">
+    <small class="p-error">{{ "FORM_ERRORS.required" }}</small>
+  </ng-container>
+  <ng-template #elseTemplate>
+    <span [ngSwitch]="errorType">
+      <small class="p-error" *ngSwitchCase="'minlength'">{{
+        "FORM_ERRORS.minlength"
+      }}</small>
+      <small class="p-error" *ngSwitchCase="'maxlength'"
+        >{{ "FORM_ERRORS.maxlength" }} {{ maxLength }}</small
+      >
+      <small class="p-error" *ngSwitchCase="'emailValidation'"
+        >{{ "FORM_ERRORS.email" }}
+      </small>
+      <small class="p-error" *ngSwitchCase="'email'"
+        >{{ "FORM_ERRORS.email" }}
+      </small>
+      <small class="p-error" *ngSwitchCase="'pattern'"
+        >{{ "FORM_ERRORS.pattern" }}
+      </small>
+      <small class="p-error" *ngSwitchCase="'min'"
+        >{{ "FORM_ERRORS.min" }} {{ min }}</small
+      >
+      <small class="p-error" *ngSwitchCase="'max'"
+        >{{ "FORM_ERRORS.max" }} {{ max }}</small
+      >
+      <small class="p-error" *ngSwitchCase="'sinDefinir'"
+        >{{ "FORM_ERRORS.sinDefinir" }}
+      </small>
+      <small class="p-error" *ngSwitchCase="'listaAutocompletarValidation'">{{
+        "FORM_ERRORS.listaAutocompletarValidation"
+      }}</small>
+      <small class="p-error" *ngSwitchDefault>{{
+        getCustomValidationLabel(errorType)
+      }}</small>
+    </span>
+  </ng-template>
+</ng-container>
+<ng-container *ngIf="form !== null && form.errors">
+  <div
+    [ngClass]="{ 'p-pt-1': input.invalid && (input.touched || input.dirty) }"
+  >
+    <small class="p-error">{{ getCustomValidationLabel(errorTypeForm) }}</small>
+  </div>
+</ng-container>

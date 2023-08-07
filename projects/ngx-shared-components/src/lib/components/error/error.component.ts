@@ -1,5 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormControl, FormGroupDirective } from '@angular/forms';
+import {
+  AbstractControl,
+  FormControl,
+  FormGroup,
+  FormGroupDirective,
+} from '@angular/forms';
 
 @Component({
   selector: 'fb-error',
@@ -8,7 +13,7 @@ import { FormControl, FormGroupDirective } from '@angular/forms';
 })
 export class ErrorComponent implements OnInit {
   @Input() input!: FormControl;
-  @Input() form!: FormGroupDirective;
+  @Input() form!: FormGroupDirective | FormGroup;
 
   errorType: string = '';
   errorTypeForm: string = '';

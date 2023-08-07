@@ -6,6 +6,6 @@ import { CommonModule } from '@angular/common';
 @NgModule({
   declarations: [NgxSharedComponentsComponent, ErrorComponent],
   imports: [CommonModule],
-  exports: [NgxSharedComponentsComponent],
+  exports: [NgxSharedComponentsComponent, ErrorComponent],
 })
 export class NgxSharedComponentsModule {}

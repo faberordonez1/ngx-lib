@@ -38,3 +38,9 @@ cd my-workspace-lib
 ng generate library ngx-nombre-lib
 ng g application demo
 ```
+
+Para publicar una nueva version de librería, ejecutar el sigte comando en la raíz de la librería, donde se encuentra el package.json
+
+```
+npm publish
+```
